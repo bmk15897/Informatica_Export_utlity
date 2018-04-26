@@ -1,12 +1,13 @@
 # Export utility
 
 This export utility is made in order to simplify the export of objects from Informatica. It will run using Python 2.7 .
+At the end of this document, there is an example for you to refer.
 
 ## Prerequisites
 
 ### 1. Install Python 2.7 using the .msi installer provided in the package.
 - while installing, make sure that you check the add to path option. Without adding the python to path, you won't be able to use python directly.
-### 2. In the cmd, change your directory to package folder, 
+### 2. In the cmd, change your directory to package(the downloaded folder), 
 ####	2.1 Run the program "get-pip.py" using the command-
 ```
 python get-pip.py
@@ -23,7 +24,7 @@ python folder_structure.py
 ```
 - give the absolute path where you want to setup the whole folder structure.
 - this will create the folder structure required.
-### 3. Copy the codes from the "CodesToBeCopied" folder in the package to the "Codes" folder in the folder structure.
+### 3. Copy the .py files from the "CodesToBeCopied" folder present in the downloaded package to the "Codes" folder in the folder structure that is created is created using the previous command.
 ### 4. Now you are all set to use the export utility.
 
 ## Using the export utility
@@ -35,7 +36,7 @@ python Trigger_export.py
 ```
 - It will take inputs such as the username,password to access Informatica.
 - It also requires the project name,application name,domain name from which the objects are to be exported.
-- It will also ask for the absolute path of the release notes.
+- It will also ask for the absolute path of the release notes for the specific application.
 - If the project and the application names are existing, the program proceeds ahead otherwise, the program stops.
 - An excel sheet is added to the released notes with a new tab named as "Resolution Specification". It is expected that for each application, there will be a separate release note.
 - Developers are asked to change the resolutions according to their requirements. 
