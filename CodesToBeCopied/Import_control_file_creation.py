@@ -56,8 +56,11 @@ def funCTLcreate(export_file):
 						while temp[cnt][1]==j:
 							if temp[cnt][2]=='rename':
 								f.write("<object name=\""+temp[cnt][0]+"\" resolution=\""+temp[cnt][2]+"\" renameTo=\""+temp[cnt][3]+"\"/>\n")
-							else:
+							elif temp[cnt][2]=='reuse' or temp[cnt][2]=='replace' or temp[cnt][2]=='none':
 								f.write("<object name=\""+temp[cnt][0]+"\" resolution=\""+temp[cnt][2]+"\"/>\n")
+							else:
+								print("Please check the resolutions in the excel sheet once again.")
+								sys.exit()
 							cnt+=1
 							if len(temp)==cnt:
 								break

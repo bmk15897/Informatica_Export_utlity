@@ -18,6 +18,30 @@ import kintry
 import Import_control_file_creation
 import getpass
 
+
+user_name = raw_input("Enter username:")
+password = getpass.getpass("Enter password:")
+d_name = raw_input("Choose the souce domain name:\n 1 - DEV\n 2 - QA\n 3 - PROD\n")
+project_name=raw_input("Enter project name:")
+application_name=raw_input("Enter application name:")
+release_notes_file=raw_input("Enter release notes absolute path and name (for eg: C:\Users\BKulkarni\Pictures\DEMO1\Excel_sheets\Try.xlsx):")
+domain_name = "DMN_INFA_EII_DEV"
+dis_name = "DATAINT_EII_DEV"
+repository_name = "MDLREP_EII_DEV"
+
+if d_name==1:
+	domain_name = "DMN_INFA_EII_DEV"
+	dis_name = "DATAINT_EII_DEV"
+	repository_name = "MDLREP_EII_DEV"
+elif d_name==2:
+	domain_name = "DMN_INFA_EII_QA"
+	dis_name = "DATAINT_EII_QA"
+	repository_name = "MDLREP_EII_QA"
+elif d_name ==3:
+	domain_name = "DMN_INFA_EII_PRD"
+	dis_name = "DATAINT_EII_PRD"
+	repository_name = "MDLREP_EII_PRD"
+
 with open("path_of_export.txt","r") as f:
 	relative_folder = f.read()+"/Migration"
 
@@ -27,28 +51,8 @@ log_file_path = relative_folder+"/Log_files/"
 temporary_file_path = relative_folder+"/Temporary_files/"
 import_control_file_path = relative_folder+"/Import_control_files/"
 
-user_name = raw_input("Enter username:")
-password = getpass.getpass("Enter password:")
-d_name = raw_input("Choose the souce domain name:\n 1 - DEV\n 2 - QA\n 3 - PROD\n")
-project_name=raw_input("Enter project name:")
-application_name=raw_input("Enter application name:")
-release_notes_file=raw_input("Enter release notes absolute path and name (for eg: C:\Users\BKulkarni\Pictures\Excel_sheets\Try.xlsx):")
+print("\n\nProceeding with the export.. Do not close this window.")
 
-domain_name = "DMN_INFA_EII_DEV"
-dis_name = "DATAINT_EII_DEV"
-repository_name = "MDLREP_EII_DEV"
-if d_name=='1':
-	domain_name = "DMN_INFA_EII_DEV"
-	dis_name = "DATAINT_EII_DEV"
-	repository_name = "MDLREP_EII_DEV"
-elif d_name=='2':
-	domain_name = "DMN_INFA_EII_QA"
-	dis_name = "DATAINT_EII_QA"
-	repository_name = "MDLREP_EII_QA"
-elif d_name =='3':
-	domain_name = "DMN_INFA_EII_PRD"
-	dis_name = "DATAINT_EII_PRD"
-	repository_name = "MDLREP_EII_PRD"
 
 try:
 	#path change required, path to infacmd
@@ -96,8 +100,8 @@ try:
 		flag = 'n'
 		print("The excel sheet has been created for your application in the release notes..")
 		kintry.show_alert(application_name)
+		print("Edit only the resolutions in the excel file, save it and close.\n")
 		os.system("pause")
-		print("Edit the excel file, save it and close.\n")
 		flag = raw_input("Enter y or Y to continue and press enter. (To exit, press n/N)\n")
 		if(flag=="Y" or flag=="y"):
 			print("Creating the import control file..")
