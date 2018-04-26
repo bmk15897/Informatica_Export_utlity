@@ -40,7 +40,7 @@ python Trigger_export.py
 - If the project and the application names are existing, the program proceeds ahead otherwise, the program stops.
 - An excel sheet is added to the released notes with a new tab named as "Resolution Specification". It is expected that for each application, there will be a separate release note.
 - Developers are asked to change the resolutions according to their requirements. 
-- After editing, follow the instructions. At the end of the this, you will have the .xml file named by project name and the import control file btoh of which are required to import into the target environment.
+- After editing, follow the instructions. At the end of the this, you will have the .xml file named by project name and the import control file both of which are required to import into the target environment.
 
 ## Here is an example - 
 
